@@ -11,13 +11,17 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
 
+  #SwitchTile Example
+  url_launcher: ^6.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
   uses-material-design: true
+
   fonts:
-    - family: MountainsofChristmas
+    - family: Cookie
       fonts:
-        - asset: assets/fonts/MountainsofChristmas-Regular.ttf
+        - asset: assets/fonts/Cookie-Regular.ttf

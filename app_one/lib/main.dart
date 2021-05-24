@@ -44,20 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               'You have pushed the button this many times:',
-              style: TextStyle(
-                fontFamily: 'MountainsofChristmas',
-                fontSize: 40.0,
-              ),
+              style: TextStyle(fontFamily: 'Cookie', fontSize: 60.0),
             ),
             Text(
               '$_counter',
