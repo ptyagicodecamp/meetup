@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: widget.title,
+      title: widget.title!,
       theme: tealTheme,
       themeMode:
           _darkTheme ? ThemeMode.dark : ThemeMode.light, //light, dark, system
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            widget.title,
+            widget.title!,
           ),
         ),
         body: Center(
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Text('You have pushed the button this many times:',
                   style: Theme.of(context)
                       .textTheme
-                      .headline5
+                      .headline5!
                       .copyWith(fontFamily: 'Cookie')),
               Text('$_counter', style: Theme.of(context).textTheme.headline1),
             ],

@@ -68,14 +68,14 @@ class _SwitchListTileState extends State<SwitchListTile1> {
 }
 
 class HyperlinkedLabelSwitch extends StatelessWidget {
-  final String label;
-  final String hyperlink;
-  final bool selected;
-  final Function onChange;
-  final EdgeInsets padding;
+  final String? label;
+  final String? hyperlink;
+  final bool? selected;
+  final Function? onChange;
+  final EdgeInsets? padding;
 
   const HyperlinkedLabelSwitch(
-      {Key key,
+      {Key? key,
       this.label,
       this.selected,
       this.onChange,
@@ -86,7 +86,7 @@ class HyperlinkedLabelSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Padding(
-        padding: padding,
+        padding: padding!,
         child: Row(
           children: <Widget>[
             //1. First widget in row is for label
@@ -102,17 +102,17 @@ class HyperlinkedLabelSwitch extends StatelessWidget {
                       //TapGestureRecognizer helps to disambiguate gestures from other potential gestures
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
-                          await canLaunch(this.hyperlink)
-                              ? await launch(this.hyperlink)
+                          await canLaunch(this.hyperlink!)
+                              ? await launch(this.hyperlink!)
                               : throw 'Could not launch ${this.hyperlink}';
                         })),
             ),
 
             //2. Next comes the switch to save the user's selection
             Switch(
-              value: selected,
+              value: selected!,
               onChanged: (bool v) {
-                onChange(v);
+                onChange!(v);
               },
             )
           ],
