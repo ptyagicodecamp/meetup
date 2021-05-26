@@ -5,8 +5,6 @@ void main() {
   runApp(MyApp());
 }
 
-var appTheme = tealTheme;
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -26,12 +24,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  bool _toggleTheme = false;
+  bool _darkTheme = false;
 
   void _incrementCounter() {
     setState(() {
-      _toggleTheme = !_toggleTheme;
-      appTheme = _toggleTheme ? purpleTheme : tealTheme;
+      _darkTheme = !_darkTheme;
       _counter++;
     });
   }
@@ -39,32 +36,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: widget.title,
-      theme: appTheme,
-      themeMode: ThemeMode.system, //light, dark, system
+      theme: tealTheme,
+      themeMode:
+          _darkTheme ? ThemeMode.dark : ThemeMode.light, //light, dark, system
       darkTheme: darkTheme,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
             widget.title,
-            style: Theme.of(context).textTheme.headline2,
           ),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'You have pushed the button this many times:',
-                style: TextStyle(
-                  fontFamily: 'Cookie',
-                  fontSize: 20.0,
-                ),
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
+              Text('You have pushed the button this many times:',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline5
+                      .copyWith(fontFamily: 'Cookie')),
+              Text('$_counter', style: Theme.of(context).textTheme.headline1),
             ],
           ),
         ),
